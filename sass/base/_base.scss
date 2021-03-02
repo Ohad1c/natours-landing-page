@@ -1,0 +1,39 @@
+*,
+*::after,
+*::before {
+   margin: 0;
+   padding: 0;
+   box-sizing: inherit; /* by setting this on each element will help us change it later if we want.  */
+}
+
+html {
+    /* we changed font-size from pixels to , so the user will be able to aply view changes as he wants.
+    if his sight isn't good, changes that he will do on the browser will be now ok. on pixels they don't count. */
+    /* font-size: 10px; */
+    font-size: 62.5%; // this define what 1 rem is.
+
+    @include respond(tab-land) { // width < 1200?
+        font-size: 56.25%; // 1 rem = 9px, 9/16 = 56.25%;
+    }
+    
+    @include respond(tab-port) { // width < 900?
+        font-size: 50%; // 1 rem = 8px, 8/16 = 50%;
+    }
+
+    @include respond(big-desktop) {
+        font-size: 75%; // 1rem = 12px , 12/16 = 75%
+    }
+}
+
+body {
+    // the length of the box we decide will include border and padding.
+    box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
+
+
+
+ } 
